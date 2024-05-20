@@ -1,4 +1,4 @@
 [deck]
-hello=world
-foo=bar
-day=night
+hello="world"
+foo="bar"
+day="night"
