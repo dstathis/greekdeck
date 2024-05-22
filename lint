@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+which toml > /dev/null
+if [ $? -ne 0 ]; then
+    echo Installing toml...
+    wget https://github.com/gnprice/toml-cli/releases/download/v0.2.3/toml-0.2.3-x86_64-linux.tar.gz &> /dev/null
+    tar xf toml-0.2.3-x86_64-linux.tar.gz
+    mv toml-0.2.3-x86_64-linux/toml ${HOME}/bin/
+    rm -r toml-0.2.3-x86_64-linux*
+fi
+
+toml get ./greek.toml . > /dev/null
+if [ $? -eq 0 ]; then
+    echo Pass
+    exit 0
+else
+    echo Fail
+    exit 1
+fi
